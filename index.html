@@ -8,6 +8,10 @@
 
   <title>Shrishti Srivastava - Video Editor & Web Developer</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+   <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script defer src="script.js"></script>
   <style>
     * {
       margin: 0;
@@ -175,53 +179,54 @@
     </div>
   </section>
 
-  <section id="testimonials" class="testimonials-section fade-up-trigger">
-    <div class="container">
-      <h2 class="section-title">Testimonials</h2>
-      <div class="testimonials-grid">
-  
-        <!-- Testimonial 1 -->
-        <div class="testimonial-card fade-up-trigger">
-          <p class="testimonial-text">"I've had the pleasure of working with her on a few edits, and I’m genuinely impressed by her skills. She has an incredible ability to take a rough idea and turn it into a polished, visually engaging video..."</p>
-          <div class="testimonial-profile">
-            <img src="assets/images/Shaily.jpg" alt="Shaily" />
+ <section id="testimonials" class="testimonials-section fade-up-trigger">
+  <div class="container">
+    <h2 class="section-title">Testimonials</h2>
+    <div class="testimonials-grid">
 
-            <div>
-              <h4>Shaily Sharma</h4>
-              <p>LinkedIn</p>
-            </div>
+      <!-- Testimonial 1 -->
+      <div class="testimonial-card fade-up-trigger">
+        <p class="testimonial-text">"I've had the pleasure of working with her on a few edits, and I’m genuinely impressed by her skills. She has an incredible ability to take a rough idea and turn it into a polished, visually engaging video..."</p>
+        <div class="testimonial-profile">
+          <img src="assets/images/Shaily.jpg" alt="Shaily" />
+          <div>
+            <h4>Shaily Sharma</h4>
+            <p>LinkedIn</p>
           </div>
         </div>
-  
-        <!-- Testimonial 2 -->
-        <div class="testimonial-card fade-up-trigger">
-          <p class="testimonial-text">"Working with Shrishti Srivastava has been a fantastic experience ,she’s edited 7 to 8 videos for my page @kritikasscorner, and each one has been absolutely amazing and right on point..."</p>
-          <div class="testimonial-profile">
-            <img src="assets/images/Kritika.jpg" alt="Kritika" />
-
-            <div>
-              <h4>Kritika Singh</h4>
-              <p>Content Creator</p>
-            </div>
-          </div>
-        </div>
-  
-        <!-- Testimonial 3 -->
-        <div class="testimonial-card fade-up-trigger">
-          <p class="testimonial-text">"As a fellow video editor with three years in the industry, I, Shivam Rai, am genuinely impressed by Shrishti Srivastava’s work. Her edits are consistently polished, creative, and perfectly aligned with the project’s vision..."</p>
-          <div class="testimonial-profile">
-            <img src="assets/images/Shivam.jpg" alt="Shivam" />
-
-            <div>
-              <h4>Shivam Rai</h4>
-              <p>Video Editor</p>
-            </div>
-          </div>
-        </div>
-  
       </div>
-    </div>
-  </section>
+
+      <!-- Testimonial 2 -->
+      <div class="testimonial-card fade-up-trigger">
+        <p class="testimonial-text">"Working with Shrishti Srivastava has been a fantastic experience ,she’s edited 7 to 8 videos for my page @kritikasscorner, and each one has been absolutely amazing and right on point..."</p>
+        <div class="testimonial-profile">
+          <img src="assets/images/Kritika.jpg" alt="Kritika" />
+          <div>
+            <h4>Kritika Singh</h4>
+            <p>Content Creator</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 3 -->
+      <div class="testimonial-card fade-up-trigger">
+        <p class="testimonial-text">"As a fellow video editor with three years in the industry, I, Shivam Rai, am genuinely impressed by Shrishti Srivastava’s work. Her edits are consistently polished, creative, and perfectly aligned with the project’s vision..."</p>
+        <div class="testimonial-profile">
+          <img src="assets/images/Shivam.jpg" alt="Shivam" />
+          <div>
+            <h4>Shivam Rai</h4>
+            <p>Video Editor</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dynamic Testimonials Placeholder -->
+      <div id="dynamic-testimonials"></div>
+
+    </div> 
+  </div>
+</section>
+
   
   
 
