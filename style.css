@@ -1,0 +1,130 @@
+.testimonials-section {
+    padding: 60px 20px;
+    background-color: #121212;
+    color: white;
+  }
+  
+  .section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+  
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+  }
+  
+  .testimonial-card {
+    background-color: #1e1e1e;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+  }
+  
+  .testimonial-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .testimonial-text {
+    font-style: italic;
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+  
+  .testimonial-profile {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  .testimonial-profile img {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  .testimonial-profile h4 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  
+  .testimonial-profile p {
+    margin: 0;
+    font-size: 0.875rem;
+    color: #ccc;
+  }
+  
+  .profile-container {
+    text-align: center;
+   
+  }
+  
+  .profile-container img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .profile-container img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(255, 255, 255, 0.2);
+  }
+  
+  .stats {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin: 2rem 0;
+  }
+  
+  .stat-card {
+    text-align: center;
+    color: #fff;
+    padding: 20px;
+    min-width: 120px;
+    background-color: #1a1a1a;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.05);
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards;
+  }
+  
+  .stat-card h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+  }
+  
+  .stat-card p {
+    margin-top: 8px;
+    font-size: 0.9rem;
+    color: #ccc;
+  }
+  
+  /* === FADE-UP GENERAL CLASS === */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.8s ease forwards;
+  }
+  
+  .fade-up[data-delay] {
+    animation-delay: var(--delay, 0s);
+  }
+  
+  /* === FADE-UP ANIMATION === */
+  @keyframes fadeUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+ 
+
+  <title>Shrishti Srivastava - Video Editor & Web Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      background: #111;
+      color: #fff;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    section {
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h1, h2 {
+      margin-bottom: 1rem;
+    }
+    .hero {
+      text-align: center;
+      padding-top: 6rem;
+    }
+    .stats {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 2rem;
+      background: #1b1b1b;
+      padding: 2rem;
+      border-radius: 10px;
+    }
+    .stats div {
+      text-align: center;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+    .services, .testimonials, .contact, .videos {
+      background: #181818;
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 3rem;
+    }
+    .portfolio-embed {
+      text-align: center;
+    }
+    .testimonial-item {
+      background: #222;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      border-radius: 8px;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    .testimonial-item img {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .testimonial-content {
+      flex: 1;
+    }
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .video-card iframe {
+      width: 100%;
+      height: 400px;
+      border: none;
+      border-radius: 8px;
+    }
+    .video-card p {
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.875rem;
+      color: #999;
+    }
+    a {
+      color: #62dafb;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <section id="profile" class="flex justify-center items-center py-12 bg-[#0e0e0e]">
+        <div class="profile-container">
+          <img src="./assets/images/Shrishti.jpeg" alt="Shrishti Srivastava" class="w-36 h-36 rounded-full object-cover shadow-sm hover:shadow-md transition duration-300">
+        </div>
+      </section>
+      
+    <h1 class= "stat-card fade-up-trigger">Hi, I'm Shrishti Srivastava</h1>
+    <p>I’m a passionate <strong>Video Editor</strong> & <strong>Web Developer</strong> dedicated to building stunning digital experiences.</p>
+    <div class="stats">
+        <div class="stat-card fade-up-trigger">
+          <h2 data-count="80">80+</h2>
+          <p>Projects</p>
+        </div>
+        <div class="stat-card fade-up-trigger">
+          <h2 data-count="2">2+</h2>
+          <p>Years Experience</p>
+        </div>
+        <div class="stat-card fade-up-trigger">
+          <h2 data-count="10">10+</h2>
+          <p>Happy Clients</p>
+        </div>
+        <div class="stat-card fade-up-trigger">
+          <h2 data-count="98">98%</h2>
+          <p>Success Rate</p>
+        </div>
+      </div>
+      
+  </section>
+
+  <section class="services fade-up-trigger">
+    <h2 class="section-title fade-up-trigger">Services</h2>
+    <ul>
+      <li>🎬 Reels Editing – Motivational, Personal Vlogs, Interview-style, Travel, Business, Education & Entertainment</li>
+      <li>💬 Captions & Subtitles with trendy styles</li>
+      <li>🎨 Color Grading – vivid, cinematic tones that enhance storytelling</li>
+      <li>⚡ Transitions, Motion Design & Platform Optimization</li>
+    </ul>
+    <p style="margin-top: 1rem;">I deliver caffeine-fueled, creatively powerful edits that make your content not only scroll-stopping but share-worthy. Whether it’s a snappy 15-second reel or a polished YouTube short, I tailor every frame to your brand style.</p>
+  </section>
+
+  <section class="portfolio fade-up-trigger">
+    <h2 class="section-title fade-up-trigger">Instagram Portfolio</h2>
+    <div class="portfolio-embed fade-up-trigger">
+      <iframe src="https://www.instagram.com/not.mee.posting/embed" width="320" height="440" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+    </div>
+    <p style="text-align:center; margin-top:1rem;">Visit: <a href="https://www.instagram.com/not.mee.posting/" target="_blank">@not.mee.posting</a></p>
+  </section>
+
+  <section class="videos fade-up-trigger">
+    <h2 class="section-title fade-up-trigger">My Previous Works</h2>
+    <div class="video-grid">
+      <div class="video-card"><iframe src="https://www.youtube.com/embed/nNPs1i6B9hc" allowfullscreen></iframe><p>YouTube</p></div>
+      <div class="video-card"><iframe src="https://www.instagram.com/reel/DIL2eSiSGOE/embed" allowfullscreen></iframe><p>Instagram</p></div>
+      <div class="video-card"><iframe src="https://www.youtube.com/embed/E2MTD3xdWFY" allowfullscreen></iframe><p>YouTube</p></div>
+      <div class="video-card"><iframe src="https://www.instagram.com/reel/DMShfsJp9mQ/embed" allowfullscreen></iframe><p>Instagram</p></div>
+      <div class="video-card"><iframe src="https://www.youtube.com/embed/IA0pQJIfJok" allowfullscreen></iframe><p>YouTube</p></div>
+      <div class="video-card"><iframe src="https://www.instagram.com/reel/DMKzH3sy6tA/embed" allowfullscreen></iframe><p>Instagram</p></div>
+      <div class="video-card"><iframe src="https://www.youtube.com/embed/mVXOUVoncZ0" allowfullscreen></iframe><p>YouTube</p></div>
+      <div class="video-card"><iframe src="https://www.instagram.com/reel/DJSPf8VTiiL/embed" allowfullscreen></iframe><p>Instagram</p></div>
+      <div class="video-card"><iframe src="https://www.youtube.com/embed/ddXlxHlTSnk" allowfullscreen></iframe><p>YouTube</p></div>
+      <div class="video-card"><iframe src="https://www.instagram.com/reel/DMh-RSZTLL2/embed" allowfullscreen></iframe><p>Instagram</p></div>
+      <div class="video-card"><iframe src="https://www.instagram.com/reel/DMAhq32y-D5/embed" allowfullscreen></iframe><p>Instagram</p></div>
+      <div class="video-card"><iframe src="https://www.youtube.com/embed/rVbjBIXGP-A" allowfullscreen></iframe><p>YouTube</p></div>
+      <div class="video-card"><iframe src="https://www.instagram.com/reel/DDIiaPKTsPY/embed" allowfullscreen></iframe><p>Instagram</p></div>
+    </div>
+  </section>
+
+  <section id="testimonials" class="testimonials-section fade-up-trigger">
+    <div class="container">
+      <h2 class="section-title">Testimonials</h2>
+      <div class="testimonials-grid">
+  
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card fade-up-trigger">
+          <p class="testimonial-text">"I've had the pleasure of working with her on a few edits, and I’m genuinely impressed by her skills. She has an incredible ability to take a rough idea and turn it into a polished, visually engaging video..."</p>
+          <div class="testimonial-profile">
+            <img src="assets/images/Shaily.jpg" alt="Shaily" />
+
+            <div>
+              <h4>Shaily Sharma</h4>
+              <p>LinkedIn</p>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card fade-up-trigger">
+          <p class="testimonial-text">"Working with Shrishti Srivastava has been a fantastic experience ,she’s edited 7 to 8 videos for my page @kritikasscorner, and each one has been absolutely amazing and right on point..."</p>
+          <div class="testimonial-profile">
+            <img src="assets/images/Kritika.jpg" alt="Kritika" />
+
+            <div>
+              <h4>Kritika Singh</h4>
+              <p>Content Creator</p>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Testimonial 3 -->
+        <div class="testimonial-card fade-up-trigger">
+          <p class="testimonial-text">"As a fellow video editor with three years in the industry, I, Shivam Rai, am genuinely impressed by Shrishti Srivastava’s work. Her edits are consistently polished, creative, and perfectly aligned with the project’s vision..."</p>
+          <div class="testimonial-profile">
+            <img src="assets/images/Shivam.jpg" alt="Shivam" />
+
+            <div>
+              <h4>Shivam Rai</h4>
+              <p>Video Editor</p>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+  
+  
+
+  <section class="contact fade-up-trigger">
+    <h2 class="section-title">Contact Me</h2>
+    <p>Email: <a href="mailto:shrishtis505@gmail.com">shrishtis505@gmail.com</a></p>
+    <p>Instagram DM: <a href="https://www.instagram.com/not.mee.posting/" target="_blank">@not.mee.posting</a></p>
+  </section>
+
+  <footer>
+    © 2025 Shrishti Srivastava. Built with ♥ by me.
+  </footer>
+</body>
+</html>
+<script src="./script.js"></script>
