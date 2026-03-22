@@ -3,242 +3,542 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shrishti Srivastava — Video Editor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
- 
-
-  <title>Shrishti Srivastava - Video Editor & Web Developer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-   <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-  <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
-  <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
-  <script defer src="script.js"></script>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
-    }
-    body {
-      background: #111;
-      color: #fff;
-      line-height: 1.6;
-      scroll-behavior: smooth;
-    }
-    section {
-      padding: 4rem 2rem;
-      max-width: 1000px;
-      margin: auto;
-    }
-    h1, h2 {
-      margin-bottom: 1rem;
-    }
-    .hero {
-      text-align: center;
-      padding-top: 6rem;
-    }
-    .stats {
-      display: flex;
-      justify-content: space-around;
-      margin-top: 2rem;
-      background: #1b1b1b;
-      padding: 2rem;
-      border-radius: 10px;
-    }
-    .stats div {
-      text-align: center;
-    }
-    .section-title {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 2rem;
-    }
-    .services, .testimonials, .contact, .videos {
-      background: #181818;
-      border-radius: 12px;
-      padding: 2rem;
-      margin-bottom: 3rem;
-    }
-    .portfolio-embed {
-      text-align: center;
-    }
-    .testimonial-item {
-      background: #222;
-      padding: 1rem;
-      margin-bottom: 1.5rem;
-      border-radius: 8px;
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-    }
-    .testimonial-item img {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-    .testimonial-content {
-      flex: 1;
-    }
-    .video-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-    }
-    .video-card iframe {
-      width: 100%;
-      height: 400px;
-      border: none;
-      border-radius: 8px;
-    }
-    .video-card p {
-      text-align: center;
-      margin-top: 0.5rem;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.875rem;
-      color: #999;
-    }
-    a {
-      color: #62dafb;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
 </head>
 <body>
-  <section class="hero">
-    <section id="profile" class="flex justify-center items-center py-12 bg-[#0e0e0e]">
-        <div class="profile-container">
-          <img src="./assets/images/Shrishti.jpeg" alt="Shrishti Srivastava" class="w-36 h-36 rounded-full object-cover shadow-sm hover:shadow-md transition duration-300">
-        </div>
-      </section>
-      
-    <h1 class= "stat-card fade-up-trigger">Hi, I'm Shrishti Srivastava</h1>
-    <p>I’m a passionate <strong>Video Editor</strong> & <strong>Web Developer</strong> dedicated to building stunning digital experiences.</p>
-    <div class="stats">
-        <div class="stat-card fade-up-trigger">
-          <h2 data-count="80">80+</h2>
-          <p>Projects</p>
-        </div>
-        <div class="stat-card fade-up-trigger">
-          <h2 data-count="2">2+</h2>
-          <p>Years Experience</p>
-        </div>
-        <div class="stat-card fade-up-trigger">
-          <h2 data-count="10">10+</h2>
-          <p>Happy Clients</p>
-        </div>
-        <div class="stat-card fade-up-trigger">
-          <h2 data-count="98">98%</h2>
-          <p>Success Rate</p>
-        </div>
-      </div>
-      
-  </section>
 
-  <section class="services fade-up-trigger">
-    <h2 class="section-title fade-up-trigger">Services</h2>
-    <ul>
-      <li>🎬 Reels Editing – Motivational, Personal Vlogs, Interview-style, Travel, Business, Education & Entertainment</li>
-      <li>💬 Captions & Subtitles with trendy styles</li>
-      <li>🎨 Color Grading – vivid, cinematic tones that enhance storytelling</li>
-      <li>⚡ Transitions, Motion Design & Platform Optimization</li>
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-logo">SS<span class="dot">.</span></div>
+    <!-- Desktop nav links -->
+    <ul class="nav-links" id="desktop-nav">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#works">Works</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#contact" class="nav-cta">Hire Me</a></li>
     </ul>
-    <p style="margin-top: 1rem;">I deliver caffeine-fueled, creatively powerful edits that make your content not only scroll-stopping but share-worthy. Whether it’s a snappy 15-second reel or a polished YouTube short, I tailor every frame to your brand style.</p>
-  </section>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+  </nav>
 
-  <section class="portfolio fade-up-trigger">
-    <h2 class="section-title fade-up-trigger">Instagram Portfolio</h2>
-    <div class="portfolio-embed fade-up-trigger">
-      <iframe src="https://www.instagram.com/not.mee.posting/embed" width="320" height="440" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+  <!-- Mobile drawer — separate from nav, always in DOM -->
+  <div class="mob-overlay" id="mob-overlay"></div>
+  <div class="mob-drawer" id="mob-drawer">
+    <button class="mob-close" id="mob-close">&#10005;</button>
+    <div class="mob-logo">SS<span class="dot">.</span></div>
+    <nav class="mob-nav">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#works">Works</a>
+      <a href="#skills">Skills</a>
+      <a href="#testimonials">Reviews</a>
+      <a href="#contact" class="mob-cta">Hire Me</a>
+    </nav>
+    <div class="mob-footer">
+      <p>shrishtiedits@gmail.com</p>
+      <p>@not.mee.posting</p>
     </div>
-    <p style="text-align:center; margin-top:1rem;">Visit: <a href="https://www.instagram.com/not.mee.posting/" target="_blank">@not.mee.posting</a></p>
-  </section>
-
-  <section class="videos fade-up-trigger">
-    <h2 class="section-title fade-up-trigger">My Previous Works</h2>
-    <div class="video-grid">
-      <div class="video-card"><iframe src="https://www.youtube.com/embed/nNPs1i6B9hc" allowfullscreen></iframe><p>YouTube</p></div>
-      <div class="video-card"><iframe src="https://www.instagram.com/reel/DIL2eSiSGOE/embed" allowfullscreen></iframe><p>Instagram</p></div>
-      <div class="video-card"><iframe src="https://www.youtube.com/embed/E2MTD3xdWFY" allowfullscreen></iframe><p>YouTube</p></div>
-      <div class="video-card"><iframe src="https://www.instagram.com/reel/DMShfsJp9mQ/embed" allowfullscreen></iframe><p>Instagram</p></div>
-      <div class="video-card"><iframe src="https://www.youtube.com/embed/IA0pQJIfJok" allowfullscreen></iframe><p>YouTube</p></div>
-      <div class="video-card"><iframe src="https://www.instagram.com/reel/DMKzH3sy6tA/embed" allowfullscreen></iframe><p>Instagram</p></div>
-      <div class="video-card"><iframe src="https://www.youtube.com/embed/mVXOUVoncZ0" allowfullscreen></iframe><p>YouTube</p></div>
-      <div class="video-card"><iframe src="https://www.instagram.com/reel/DJSPf8VTiiL/embed" allowfullscreen></iframe><p>Instagram</p></div>
-      <div class="video-card"><iframe src="https://www.youtube.com/embed/ddXlxHlTSnk" allowfullscreen></iframe><p>YouTube</p></div>
-      <div class="video-card"><iframe src="https://www.instagram.com/reel/DMh-RSZTLL2/embed" allowfullscreen></iframe><p>Instagram</p></div>
-      <div class="video-card"><iframe src="https://www.instagram.com/reel/DMAhq32y-D5/embed" allowfullscreen></iframe><p>Instagram</p></div>
-      <div class="video-card"><iframe src="https://www.youtube.com/embed/rVbjBIXGP-A" allowfullscreen></iframe><p>YouTube</p></div>
-      <div class="video-card"><iframe src="https://www.instagram.com/reel/DDIiaPKTsPY/embed" allowfullscreen></iframe><p>Instagram</p></div>
-    </div>
-  </section>
-
- <section id="testimonials" class="testimonials-section fade-up-trigger">
-  <div class="container">
-    <h2 class="section-title">Testimonials</h2>
-    <div class="testimonials-grid">
-
-      <!-- Testimonial 1 -->
-      <div class="testimonial-card fade-up-trigger">
-        <p class="testimonial-text">"I've had the pleasure of working with her on a few edits, and I’m genuinely impressed by her skills. She has an incredible ability to take a rough idea and turn it into a polished, visually engaging video..."</p>
-        <div class="testimonial-profile">
-          <img src="assets/images/Shaily.jpg" alt="Shaily" />
-          <div>
-            <h4>Shaily Sharma</h4>
-            <p>LinkedIn</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Testimonial 2 -->
-      <div class="testimonial-card fade-up-trigger">
-        <p class="testimonial-text">"Working with Shrishti Srivastava has been a fantastic experience ,she’s edited 7 to 8 videos for my page @kritikasscorner, and each one has been absolutely amazing and right on point..."</p>
-        <div class="testimonial-profile">
-          <img src="assets/images/Kritika.jpg" alt="Kritika" />
-          <div>
-            <h4>Kritika Singh</h4>
-            <p>Content Creator</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Testimonial 3 -->
-      <div class="testimonial-card fade-up-trigger">
-        <p class="testimonial-text">"As a fellow video editor with three years in the industry, I, Shivam Rai, am genuinely impressed by Shrishti Srivastava’s work. Her edits are consistently polished, creative, and perfectly aligned with the project’s vision..."</p>
-        <div class="testimonial-profile">
-          <img src="assets/images/Shivam.jpg" alt="Shivam" />
-          <div>
-            <h4>Shivam Rai</h4>
-            <p>Video Editor</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Dynamic Testimonials Placeholder -->
-      <div id="dynamic-testimonials"></div>
-
-    </div> 
   </div>
-</section>
-
-  
-  
-
-  <section class="contact fade-up-trigger">
-    <h2 class="section-title">Contact Me</h2>
-    <p>Email: <a href="mailto:shrishtis505@gmail.com">shrishtis505@gmail.com</a></p>
-    <p>Instagram DM: <a href="https://www.instagram.com/not.mee.posting/" target="_blank">@not.mee.posting</a></p>
+  <!-- HERO -->
+  <section id="hero">
+    <canvas id="particles-canvas"></canvas>
+    <div class="hero-glow"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">&#10022; Available for projects</p>
+      <h1 class="hero-name">Shrishti<br><span class="outline-text">Srivastava</span></h1>
+      <p class="hero-role"><span id="typed-text"></span><span class="cursor">|</span></p>
+      <p class="hero-desc">Caffeine-fueled edits that make your content scroll-stopping, share-worthy &amp; unforgettable.</p>
+      <div class="hero-btns">
+        <a href="#works" class="btn-primary">View My Work</a>
+        <a href="#contact" class="btn-outline">Let's Talk</a>
+      </div>
+    </div>
+    <div class="hero-image-wrap">
+      <div class="hero-ring"></div>
+      <img src="./assets/images/Shrishti.jpeg" alt="Shrishti Srivastava" class="hero-photo">
+      <div class="hero-badge">
+        <span class="badge-num">3+</span>
+        <span class="badge-label">Yrs Exp</span>
+      </div>
+    </div>
+    <div class="scroll-hint">scroll &#8595;</div>
   </section>
 
-  <footer>
-    © 2025 Shrishti Srivastava. Built with ♥ by me.
+  <!-- STATS -->
+  <section id="about">
+    <div class="stats-bar">
+      <div class="stat-item fade-up-trigger">
+        <span class="stat-num" data-count="80">0</span><span class="stat-suffix">+</span>
+        <p>Projects Done</p>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item fade-up-trigger">
+        <span class="stat-num" data-count="3">0</span><span class="stat-suffix">+</span>
+        <p>Years Experience</p>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item fade-up-trigger">
+        <span class="stat-num" data-count="20">0</span><span class="stat-suffix">+</span>
+        <p>Happy Clients</p>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item fade-up-trigger">
+        <span class="stat-num" data-count="98">0</span><span class="stat-suffix">%</span>
+        <p>Success Rate</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="section-pad">
+    <div class="container">
+      <div class="section-header fade-up-trigger">
+        <span class="section-tag">What I Do</span>
+        <h2 class="section-title">Services</h2>
+      </div>
+      <div class="services-grid">
+        <div class="service-card fade-up-trigger">
+          <div class="service-icon">&#127916;</div>
+          <h3>Reels Editing</h3>
+          <p>Motivational, vlogs, interview-style, travel, business, education &amp; entertainment — every frame crafted for impact.</p>
+        </div>
+        <div class="service-card fade-up-trigger">
+          <div class="service-icon">&#128172;</div>
+          <h3>Captions &amp; Subtitles</h3>
+          <p>Trendy, styled captions that boost engagement and make your content accessible to every viewer.</p>
+        </div>
+        <div class="service-card fade-up-trigger">
+          <div class="service-icon">&#127912;</div>
+          <h3>Color Grading</h3>
+          <p>Vivid, cinematic tones that enhance storytelling and give your brand a consistent visual identity.</p>
+        </div>
+        <div class="service-card fade-up-trigger">
+          <div class="service-icon">&#9889;</div>
+          <h3>Motion Design</h3>
+          <p>Smooth transitions, dynamic text animations &amp; platform-optimised exports for every format.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO WORKS -->
+  <section id="works" class="section-pad">
+    <div class="container">
+      <div class="section-header fade-up-trigger">
+        <span class="section-tag">Portfolio</span>
+        <h2 class="section-title">My Previous Works</h2>
+      </div>
+      <div class="filter-bar fade-up-trigger">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="instagram">Instagram</button>
+        <button class="filter-btn" data-filter="youtube">YouTube</button>
+      </div>
+      <div class="video-grid" id="video-grid">
+
+        <!-- INSTAGRAM REELS -->
+        <div class="video-card fade-up-trigger" data-type="instagram">
+          <div class="video-thumb insta-thumb" data-src="https://www.instagram.com/reel/DTc5yGskpOJ/embed">
+            <div class="insta-preview">
+              <div class="insta-watermark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="white" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="white" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.5" fill="white"/></svg></div>
+              <div class="insta-play-big">&#9654;</div>
+              <p class="insta-label">Reel 01</p>
+            </div>
+            <div class="play-overlay"><div class="play-btn"><div class="play-triangle"></div></div></div>
+            <span class="platform-badge ig">Instagram</span>
+          </div>
+        </div>
+
+        <div class="video-card fade-up-trigger" data-type="instagram">
+          <div class="video-thumb insta-thumb" data-src="https://www.instagram.com/reel/DWJ0UI8kkHK/embed">
+            <div class="insta-preview">
+              <div class="insta-watermark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="white" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="white" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.5" fill="white"/></svg></div>
+              <div class="insta-play-big">&#9654;</div>
+              <p class="insta-label">Reel 02</p>
+            </div>
+            <div class="play-overlay"><div class="play-btn"><div class="play-triangle"></div></div></div>
+            <span class="platform-badge ig">Instagram</span>
+          </div>
+        </div>
+
+        <div class="video-card fade-up-trigger" data-type="instagram">
+          <div class="video-thumb insta-thumb" data-src="https://www.instagram.com/reel/DVyYgqME2_a/embed">
+            <div class="insta-preview">
+              <div class="insta-watermark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="white" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="white" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.5" fill="white"/></svg></div>
+              <div class="insta-play-big">&#9654;</div>
+              <p class="insta-label">Reel 03</p>
+            </div>
+            <div class="play-overlay"><div class="play-btn"><div class="play-triangle"></div></div></div>
+            <span class="platform-badge ig">Instagram</span>
+          </div>
+        </div>
+
+        <div class="video-card fade-up-trigger" data-type="instagram">
+          <div class="video-thumb insta-thumb" data-src="https://www.instagram.com/reel/DVn0PG-k5UT/embed">
+            <div class="insta-preview">
+              <div class="insta-watermark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="white" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="white" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.5" fill="white"/></svg></div>
+              <div class="insta-play-big">&#9654;</div>
+              <p class="insta-label">Reel 04</p>
+            </div>
+            <div class="play-overlay"><div class="play-btn"><div class="play-triangle"></div></div></div>
+            <span class="platform-badge ig">Instagram</span>
+          </div>
+        </div>
+
+        <div class="video-card fade-up-trigger" data-type="instagram">
+          <div class="video-thumb insta-thumb" data-src="https://www.instagram.com/reel/DViikr0ESE_/embed">
+            <div class="insta-preview">
+              <div class="insta-watermark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="white" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="white" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.5" fill="white"/></svg></div>
+              <div class="insta-play-big">&#9654;</div>
+              <p class="insta-label">Reel 05</p>
+            </div>
+            <div class="play-overlay"><div class="play-btn"><div class="play-triangle"></div></div></div>
+            <span class="platform-badge ig">Instagram</span>
+          </div>
+        </div>
+
+        <div class="video-card fade-up-trigger" data-type="instagram">
+          <div class="video-thumb insta-thumb" data-src="https://www.instagram.com/reel/DUe25vaEttQ/embed">
+            <div class="insta-preview">
+              <div class="insta-watermark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="white" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="white" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.5" fill="white"/></svg></div>
+              <div class="insta-play-big">&#9654;</div>
+              <p class="insta-label">Reel 06</p>
+            </div>
+            <div class="play-overlay"><div class="play-btn"><div class="play-triangle"></div></div></div>
+            <span class="platform-badge ig">Instagram</span>
+          </div>
+        </div>
+
+        <div class="video-card fade-up-trigger" data-type="instagram">
+          <div class="video-thumb insta-thumb" data-src="https://www.instagram.com/reel/DQZJzPTjcsh/embed">
+            <div class="insta-preview">
+              <div class="insta-watermark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="white" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="white" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.5" fill="white"/></svg></div>
+              <div class="insta-play-big">&#9654;</div>
+              <p class="insta-label">Reel 07</p>
+            </div>
+            <div class="play-overlay"><div class="play-btn"><div class="play-triangle"></div></div></div>
+            <span class="platform-badge ig">Instagram</span>
+          </div>
+        </div>
+
+        <div class="video-card fade-up-trigger" data-type="instagram">
+          <div class="video-thumb insta-thumb" data-src="https://www.instagram.com/reel/DPtZen_krsF/embed">
+            <div class="insta-preview">
+              <div class="insta-watermark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="white" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="white" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.5" fill="white"/></svg></div>
+              <div class="insta-play-big">&#9654;</div>
+              <p class="insta-label">Reel 08</p>
+            </div>
+            <div class="play-overlay"><div class="play-btn"><div class="play-triangle"></div></div></div>
+            <span class="platform-badge ig">Instagram</span>
+          </div>
+        </div>
+
+        <div class="video-card fade-up-trigger" data-type="instagram">
+          <div class="video-thumb insta-thumb" data-src="https://www.instagram.com/reel/DPIXJKgCPec/embed">
+            <div class="insta-preview">
+              <div class="insta-watermark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="white" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="white" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.5" fill="white"/></svg></div>
+              <div class="insta-play-big">&#9654;</div>
+              <p class="insta-label">Reel 09</p>
+            </div>
+            <div class="play-overlay"><div class="play-btn"><div class="play-triangle"></div></div></div>
+            <span class="platform-badge ig">Instagram</span>
+          </div>
+        </div>
+
+        <div class="video-card fade-up-trigger" data-type="instagram">
+          <div class="video-thumb insta-thumb" data-src="https://www.instagram.com/reel/DOivrp5kqJF/embed">
+            <div class="insta-preview">
+              <div class="insta-watermark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="white" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="white" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.5" fill="white"/></svg></div>
+              <div class="insta-play-big">&#9654;</div>
+              <p class="insta-label">Reel 10</p>
+            </div>
+            <div class="play-overlay"><div class="play-btn"><div class="play-triangle"></div></div></div>
+            <span class="platform-badge ig">Instagram</span>
+          </div>
+        </div>
+
+        <div class="video-card fade-up-trigger" data-type="instagram">
+          <div class="video-thumb insta-thumb" data-src="https://www.instagram.com/reel/DOI-coLknTx/embed">
+            <div class="insta-preview">
+              <div class="insta-watermark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="white" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="white" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.5" fill="white"/></svg></div>
+              <div class="insta-play-big">&#9654;</div>
+              <p class="insta-label">Reel 11</p>
+            </div>
+            <div class="play-overlay"><div class="play-btn"><div class="play-triangle"></div></div></div>
+            <span class="platform-badge ig">Instagram</span>
+          </div>
+        </div>
+
+        <div class="video-card fade-up-trigger" data-type="instagram">
+          <div class="video-thumb insta-thumb" data-src="https://www.instagram.com/reel/DMAhq32y-D5/embed">
+            <div class="insta-preview">
+              <div class="insta-watermark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="white" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="white" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.5" fill="white"/></svg></div>
+              <div class="insta-play-big">&#9654;</div>
+              <p class="insta-label">Reel 12</p>
+            </div>
+            <div class="play-overlay"><div class="play-btn"><div class="play-triangle"></div></div></div>
+            <span class="platform-badge ig">Instagram</span>
+          </div>
+        </div>
+
+        <div class="video-card fade-up-trigger" data-type="instagram">
+          <div class="video-thumb insta-thumb" data-src="https://www.instagram.com/reel/DHYp3eyzR1S/embed">
+            <div class="insta-preview">
+              <div class="insta-watermark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="white" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="white" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.5" fill="white"/></svg></div>
+              <div class="insta-play-big">&#9654;</div>
+              <p class="insta-label">Reel 13</p>
+            </div>
+            <div class="play-overlay"><div class="play-btn"><div class="play-triangle"></div></div></div>
+            <span class="platform-badge ig">Instagram</span>
+          </div>
+        </div>
+
+        <!-- YOUTUBE VIDEOS -->
+        <div class="video-card fade-up-trigger" data-type="youtube">
+          <div class="video-thumb" data-src="https://www.youtube.com/embed/nNPs1i6B9hc?autoplay=1">
+            <img src="https://img.youtube.com/vi/nNPs1i6B9hc/hqdefault.jpg" alt="YouTube Video" loading="lazy">
+            <div class="play-overlay"><div class="play-btn"><div class="play-triangle"></div></div></div>
+            <span class="platform-badge yt">YouTube</span>
+          </div>
+        </div>
+
+        <div class="video-card fade-up-trigger" data-type="youtube">
+          <div class="video-thumb" data-src="https://www.youtube.com/embed/E2MTD3xdWFY?autoplay=1">
+            <img src="https://img.youtube.com/vi/E2MTD3xdWFY/hqdefault.jpg" alt="YouTube Video" loading="lazy">
+            <div class="play-overlay"><div class="play-btn"><div class="play-triangle"></div></div></div>
+            <span class="platform-badge yt">YouTube</span>
+          </div>
+        </div>
+
+        <div class="video-card fade-up-trigger" data-type="youtube">
+          <div class="video-thumb" data-src="https://www.youtube.com/embed/IA0pQJIfJok?autoplay=1">
+            <img src="https://img.youtube.com/vi/IA0pQJIfJok/hqdefault.jpg" alt="YouTube Video" loading="lazy">
+            <div class="play-overlay"><div class="play-btn"><div class="play-triangle"></div></div></div>
+            <span class="platform-badge yt">YouTube</span>
+          </div>
+        </div>
+
+        <div class="video-card fade-up-trigger" data-type="youtube">
+          <div class="video-thumb" data-src="https://www.youtube.com/embed/mVXOUVoncZ0?autoplay=1">
+            <img src="https://img.youtube.com/vi/mVXOUVoncZ0/hqdefault.jpg" alt="YouTube Video" loading="lazy">
+            <div class="play-overlay"><div class="play-btn"><div class="play-triangle"></div></div></div>
+            <span class="platform-badge yt">YouTube</span>
+          </div>
+        </div>
+
+        <div class="video-card fade-up-trigger" data-type="youtube">
+          <div class="video-thumb" data-src="https://www.youtube.com/embed/ddXlxHlTSnk?autoplay=1">
+            <img src="https://img.youtube.com/vi/ddXlxHlTSnk/hqdefault.jpg" alt="YouTube Video" loading="lazy">
+            <div class="play-overlay"><div class="play-btn"><div class="play-triangle"></div></div></div>
+            <span class="platform-badge yt">YouTube</span>
+          </div>
+        </div>
+
+        <div class="video-card fade-up-trigger" data-type="youtube">
+          <div class="video-thumb" data-src="https://www.youtube.com/embed/rVbjBIXGP-A?autoplay=1">
+            <img src="https://img.youtube.com/vi/rVbjBIXGP-A/hqdefault.jpg" alt="YouTube Video" loading="lazy">
+            <div class="play-overlay"><div class="play-btn"><div class="play-triangle"></div></div></div>
+            <span class="platform-badge yt">YouTube</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- LIGHTBOX MODAL -->
+  <div id="lightbox" class="lightbox">
+    <div class="lightbox-overlay" id="lightbox-overlay"></div>
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightbox-close">&#10005;</button>
+      <iframe id="lightbox-iframe" src="" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+    </div>
+  </div>
+
+  <!-- SKILLS -->
+  <section id="skills" class="section-pad">
+    <div class="container">
+      <div class="section-header fade-up-trigger">
+        <span class="section-tag">Toolkit</span>
+        <h2 class="section-title">Skills &amp; Tools</h2>
+        <p class="section-sub">Tools I use to bring your vision to life.</p>
+      </div>
+      <div class="skills-grid">
+
+        <div class="skill-card fade-up-trigger">
+          <div class="skill-ring-wrap">
+            <svg class="skill-ring" viewBox="0 0 120 120">
+              <circle class="ring-bg" cx="60" cy="60" r="50"/>
+              <circle class="ring-fill" cx="60" cy="60" r="50" data-pct="100"/>
+            </svg>
+            <div class="skill-ring-inner">
+              <span class="skill-ring-pct">100%</span>
+            </div>
+          </div>
+          <div class="skill-card-icon">&#9996;</div>
+          <h3 class="skill-card-name">CapCut</h3>
+          <p class="skill-card-desc">Short-form reels, trending edits, mobile-first content</p>
+        </div>
+
+        <div class="skill-card fade-up-trigger">
+          <div class="skill-ring-wrap">
+            <svg class="skill-ring" viewBox="0 0 120 120">
+              <circle class="ring-bg" cx="60" cy="60" r="50"/>
+              <circle class="ring-fill" cx="60" cy="60" r="50" data-pct="90"/>
+            </svg>
+            <div class="skill-ring-inner">
+              <span class="skill-ring-pct">90%</span>
+            </div>
+          </div>
+          <div class="skill-card-icon">&#127909;</div>
+          <h3 class="skill-card-name">Premiere Pro</h3>
+          <p class="skill-card-desc">Long-form edits, brand films, multi-track timelines</p>
+        </div>
+
+        <div class="skill-card fade-up-trigger">
+          <div class="skill-ring-wrap">
+            <svg class="skill-ring" viewBox="0 0 120 120">
+              <circle class="ring-bg" cx="60" cy="60" r="50"/>
+              <circle class="ring-fill" cx="60" cy="60" r="50" data-pct="90"/>
+            </svg>
+            <div class="skill-ring-inner">
+              <span class="skill-ring-pct">90%</span>
+            </div>
+          </div>
+          <div class="skill-card-icon">&#127912;</div>
+          <h3 class="skill-card-name">DaVinci Resolve</h3>
+          <p class="skill-card-desc">Cinematic color grading, HDR, professional finishing</p>
+        </div>
+
+        <div class="skill-card fade-up-trigger">
+          <div class="skill-ring-wrap">
+            <svg class="skill-ring" viewBox="0 0 120 120">
+              <circle class="ring-bg" cx="60" cy="60" r="50"/>
+              <circle class="ring-fill" cx="60" cy="60" r="50" data-pct="80"/>
+            </svg>
+            <div class="skill-ring-inner">
+              <span class="skill-ring-pct">80%</span>
+            </div>
+          </div>
+          <div class="skill-card-icon">&#9889;</div>
+          <h3 class="skill-card-name">After Effects</h3>
+          <p class="skill-card-desc">Motion graphics, text animations, VFX compositing</p>
+        </div>
+
+      </div>
+
+      <!-- Bonus: what I specialise in tags -->
+      <div class="skill-tags fade-up-trigger">
+        <span class="skill-tag">Reels</span>
+        <span class="skill-tag">YouTube Shorts</span>
+        <span class="skill-tag">Color Grading</span>
+        <span class="skill-tag">Motion Text</span>
+        <span class="skill-tag">Sound Design</span>
+        <span class="skill-tag">Transitions</span>
+        <span class="skill-tag">Subtitles</span>
+        <span class="skill-tag">Brand Films</span>
+        <span class="skill-tag">Thumbnails</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" class="section-pad">
+    <div class="container">
+      <div class="section-header fade-up-trigger">
+        <span class="section-tag">Kind Words</span>
+        <h2 class="section-title">Testimonials</h2>
+      </div>
+      <div class="testimonials-grid" id="testimonials-grid">
+        <div class="t-card fade-up-trigger">
+          <div class="t-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="t-text">"I've had the pleasure of working with her on a few edits, and I'm genuinely impressed by her skills. She has an incredible ability to take a rough idea and turn it into a polished, visually engaging video..."</p>
+          <div class="t-profile">
+            <div class="t-avatar" style="background:linear-gradient(135deg,#a855f7,#ec4899)">SS</div>
+            <div><h4>Shaily Sharma</h4><p>LinkedIn</p></div>
+          </div>
+        </div>
+        <div class="t-card fade-up-trigger">
+          <div class="t-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="t-text">"Working with Shrishti has been a fantastic experience — she's edited 7 to 8 videos for my page @kritikasscorner, and each one has been absolutely amazing and right on point..."</p>
+          <div class="t-profile">
+            <div class="t-avatar" style="background:linear-gradient(135deg,#f59e0b,#ef4444)">KS</div>
+            <div><h4>Kritika Singh</h4><p>Content Creator</p></div>
+          </div>
+        </div>
+        <div class="t-card fade-up-trigger">
+          <div class="t-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="t-text">"As a fellow video editor with three years in the industry, I'm genuinely impressed by Shrishti's work. Her edits are consistently polished, creative, and perfectly aligned with the project's vision..."</p>
+          <div class="t-profile">
+            <div class="t-avatar" style="background:linear-gradient(135deg,#06b6d4,#3b82f6)">SR</div>
+            <div><h4>Shivam Rai</h4><p>Video Editor</p></div>
+          </div>
+        </div>
+        <div id="dynamic-testimonials"></div>
+      </div>
+      <div class="review-cta fade-up-trigger">
+        <p>Worked with me? I'd love your feedback!</p>
+        <a href="https://forms.gle/RBfqfK41K5yFZc7A6" target="_blank" class="btn-outline">Leave a Review &#10022;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section-pad">
+    <div class="container">
+      <div class="section-header fade-up-trigger">
+        <span class="section-tag">Get In Touch</span>
+        <h2 class="section-title">Let's Work Together</h2>
+        <p class="section-sub">Have a project in mind? I'd love to hear from you.</p>
+      </div>
+      <div class="contact-box fade-up-trigger">
+        <div class="availability-badge">
+          <span class="avail-dot"></span>
+          Available for new projects
+        </div>
+        <p class="contact-box-text">Whether it's a reel, a short film, or a full brand video — drop me a message and I'll get back within 24 hours.</p>
+        <div class="contact-channels">
+          <a href="mailto:shrishtiedits@gmail.com" class="channel-btn">
+            <span class="channel-icon">&#9993;</span>
+            <span class="channel-label">
+              <small>Email me directly</small>
+              shrishtiedits@gmail.com
+            </span>
+          </a>
+          <a href="https://www.instagram.com/not.mee.posting/" target="_blank" class="channel-btn">
+            <span class="channel-icon">&#128248;</span>
+            <span class="channel-label">
+              <small>Slide into DMs</small>
+              @not.mee.posting
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">SS<span class="dot">.</span></div>
+      <p class="footer-tagline">Making your content scroll-stopping, one frame at a time.</p>
+      <div class="footer-links">
+        <a href="https://www.instagram.com/not.mee.posting/" target="_blank">Instagram</a>
+        <a href="mailto:shrishtiedits@gmail.com">Email</a>
+      </div>
+      <p class="footer-copy">&#169; 2025 Shrishti Srivastava. Crafted with &#9825; by me.</p>
+    </div>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
-<script src="./script.js"></script>
