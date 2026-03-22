@@ -341,4 +341,75 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error("Testimonials fetch error:", err);
     });
 
+  /* =====================
+     INSTAGRAM THUMBNAILS
+     via Microlink API
+  ===================== */
+  const instaThumbs = document.querySelectorAll(".insta-thumb");
+
+  instaThumbs.forEach((thumb, index) => {
+    // Stagger requests so we don't hammer the API
+    setTimeout(() => {
+      const reelUrl = thumb.dataset.src
+        ? thumb.dataset.src.replace("/embed", "")
+        : null;
+
+      if (!reelUrl) return;
+
+      const apiUrl = `https://api.microlink.io/?url=${encodeURIComponent(reelUrl)}&screenshot=true&meta=false&embed=screenshot.url`;
+
+      fetch(apiUrl)
+        .then(res => res.json())
+        .then(data => {
+          if (data.status === "success" && data.data && data.data.screenshot && data.data.screenshot.url) {
+            const imgUrl = data.data.screenshot.url;
+
+            // Create img element and inject into the preview
+            const preview = thumb.querySelector(".insta-preview");
+            if (!preview) return;
+
+            // Build a real thumbnail overlay
+            const img = document.createElement("img");
+            img.src = imgUrl;
+            img.alt = "Reel thumbnail";
+            img.style.cssText = `
+              position: absolute;
+              inset: 0;
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              border-radius: 0;
+              z-index: 0;
+              opacity: 0;
+              transition: opacity 0.5s ease;
+            `;
+
+            img.onload = () => {
+              img.style.opacity = "1";
+              // Dim the play icon slightly so it's visible over the image
+              const playBig = preview.querySelector(".insta-play-big");
+              if (playBig) {
+                playBig.style.textShadow = "0 2px 16px rgba(0,0,0,0.9)";
+                playBig.style.zIndex = "2";
+              }
+              const label = preview.querySelector(".insta-label");
+              if (label) label.style.zIndex = "2";
+              const watermark = preview.querySelector(".insta-watermark");
+              if (watermark) watermark.style.zIndex = "2";
+            };
+
+            img.onerror = () => {
+              // Silently fail — keep the dark gradient fallback
+            };
+
+            preview.style.position = "relative";
+            preview.insertBefore(img, preview.firstChild);
+          }
+        })
+        .catch(() => {
+          // Microlink failed — dark gradient fallback stays, no error shown
+        });
+    }, index * 300); // 300ms stagger between each request
+  });
+
 });
