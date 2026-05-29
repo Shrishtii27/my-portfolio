@@ -257,7 +257,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
           videoModalVideo.src = src;
           videoModal.classList.add("active");
-          lenis.stop();
           document.body.style.overflow = 'hidden';
           
           // Pause all background carousel videos to prevent mobile lag
@@ -331,7 +330,6 @@ document.addEventListener("DOMContentLoaded", () => {
       // Resume background video
       loadActiveSlideIframe();
     }, 400);
-    lenis.start();
     document.body.style.overflow = '';
   }
 
