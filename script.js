@@ -158,6 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }, 300);
 
+
   /* =====================
      FADE-UP OBSERVER
      (for all other elements)
@@ -166,250 +167,238 @@ document.addEventListener("DOMContentLoaded", () => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
       entry.target.classList.add("fade-up");
-
-      // Skill bars (old bar style)
-      const fill = entry.target.querySelector(".skill-fill");
-      if (fill && !fill.dataset.animated) {
-        fill.dataset.animated = "true";
-        setTimeout(() => { fill.style.width = fill.dataset.width + "%"; }, 100);
-      }
-
-      // Circular ring animation
-      const ring = entry.target.querySelector(".ring-fill");
-      if (ring && !ring.dataset.animated) {
-        ring.dataset.animated = "true";
-        const pct = parseInt(ring.dataset.pct) || 0;
-        const circumference = 314;
-        const offset = circumference - (pct / 100) * circumference;
-        setTimeout(() => { ring.style.strokeDashoffset = offset; }, 150);
-      }
-
       observer.unobserve(entry.target);
     });
   }, { threshold: 0.05, rootMargin: "0px 0px -10px 0px" });
 
-  // Observe everything with fade-up-trigger EXCEPT stat-items (handled above)
   document.querySelectorAll(".fade-up-trigger:not(.stat-item)").forEach(el => observer.observe(el));
 
-  // Force show anything already visible on load
   setTimeout(() => {
     document.querySelectorAll(".fade-up-trigger:not(.stat-item)").forEach(el => {
       const rect = el.getBoundingClientRect();
       if (rect.top < window.innerHeight && rect.bottom > 0) {
         el.classList.add("fade-up");
-        const fill = el.querySelector(".skill-fill");
-        if (fill && !fill.dataset.animated) {
-          fill.dataset.animated = "true";
-          setTimeout(() => { fill.style.width = fill.dataset.width + "%"; }, 200);
-        }
       }
     });
   }, 150);
 
-  /* =====================
-     VIDEO FILTER
-  ===================== */
+  /* ==========================================================
+     INLINE VIDEO CAROUSEL (SWIPER)
+  ========================================================== */
+  const slides = document.querySelectorAll('.swiper-slide');
+  const videoModal = document.getElementById("video-modal");
+  const videoModalOverlay = document.getElementById("video-modal-overlay");
+  const videoModalClose = document.getElementById("video-modal-close");
+  const videoModalContent = document.getElementById("video-modal-content");
+  const videoModalVideo = document.getElementById("video-modal-video");
+
+  // Initialize Swiper
+  const swiper = new Swiper('.works-carousel', {
+    effect: 'creative',
+    creativeEffect: {
+      prev: {
+        shadow: true,
+        translate: ['-125%', 0, -800],
+        rotate: [0, 0, -5],
+      },
+      next: {
+        shadow: true,
+        translate: ['125%', 0, -800],
+        rotate: [0, 0, 5],
+      },
+    },
+    grabCursor: true,
+    centeredSlides: true,
+    slidesPerView: 'auto',
+    spaceBetween: 0,
+    rewind: true,
+    autoplay: {
+      delay: 3500,
+      disableOnInteraction: false,
+      pauseOnMouseEnter: true
+    },
+    navigation: {
+      nextEl: '.carousel-nav-next',
+      prevEl: '.carousel-nav-prev',
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    keyboard: {
+      enabled: true,
+    },
+    mousewheel: {
+      forceToAxis: true,
+    },
+    on: {
+      slideChangeTransitionEnd: function () {
+        loadActiveSlideIframe();
+      },
+      init: function () {
+        setTimeout(loadActiveSlideIframe, 0);
+      },
+      click: function (s, e) {
+        if (typeof s.clickedIndex === 'undefined') return;
+
+        const slide = s.slides[s.clickedIndex];
+        
+        if (slide.classList.contains('swiper-slide-active')) {
+          const src = slide.dataset.src;
+          const isLandscape = slide.classList.contains('landscape-slide');
+
+          if (isLandscape) {
+            videoModalContent.classList.add('landscape-ratio');
+            videoModalContent.classList.remove('portrait-ratio');
+          } else {
+            videoModalContent.classList.add('portrait-ratio');
+            videoModalContent.classList.remove('landscape-ratio');
+          }
+
+          videoModalVideo.src = src;
+          videoModal.classList.add("active");
+          lenis.stop();
+          document.body.style.overflow = 'hidden';
+          videoModalVideo.play().catch(e => console.error("Autoplay failed:", e));
+        } else {
+          s.slideTo(s.clickedIndex);
+        }
+      }
+    }
+  });
+
+  function loadActiveSlideIframe() {
+    const currentSlides = document.querySelectorAll('.swiper-slide');
+    currentSlides.forEach(slide => {
+      const video = slide.querySelector('video');
+      if (!video) return;
+
+      if (slide.classList.contains('swiper-slide-active') && !slide.classList.contains('hidden-slide')) {
+        video.muted = true;
+        const playPromise = video.play();
+        if (playPromise !== undefined) {
+           playPromise.catch(error => {});
+        }
+      } else {
+        video.pause();
+        video.currentTime = 0.5; 
+      }
+    });
+  }
+
+  // Filter Logic for Swiper
   const filterBtns = document.querySelectorAll(".filter-btn");
-  const videoCards = document.querySelectorAll(".video-card");
 
   filterBtns.forEach(btn => {
     btn.addEventListener("click", () => {
       filterBtns.forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
       const filter = btn.dataset.filter;
-      videoCards.forEach(card => {
-        card.classList.toggle("hidden", filter !== "all" && card.dataset.type !== filter);
+
+      const wrapper = document.querySelector('.swiper-wrapper');
+      wrapper.innerHTML = '';
+
+      slides.forEach(slide => {
+        const match = filter === "all" || slide.dataset.type === filter;
+        if (match) {
+          slide.classList.remove("hidden-slide");
+          wrapper.appendChild(slide);
+        } else {
+          slide.classList.add("hidden-slide");
+        }
       });
+
+      swiper.update();
+      swiper.slideTo(0, 0); // Slide to 0 with 0ms duration
+      loadActiveSlideIframe();
     });
   });
 
-  /* =====================
-     LIGHTBOX / VIDEO MODAL
-  ===================== */
-  const lightbox = document.getElementById("lightbox");
-  const lightboxIframe = document.getElementById("lightbox-iframe");
-  const lightboxClose = document.getElementById("lightbox-close");
-  const lightboxOverlay = document.getElementById("lightbox-overlay");
-  const lightboxContent = document.querySelector(".lightbox-content");
+  /* ==========================================================
+     FULLSCREEN VIDEO MODAL (On Click)
+  ========================================================== */
 
-  document.querySelectorAll(".video-thumb").forEach(thumb => {
-    thumb.addEventListener("click", () => {
-      let src = thumb.dataset.src;
-      if (!src) return;
-
-      // Force autoplay on both YouTube and Instagram
-      if (src.includes("youtube.com") && !src.includes("autoplay=1")) {
-        src += (src.includes("?") ? "&" : "?") + "autoplay=1&mute=0";
-      }
-      if (src.includes("instagram.com")) {
-        src += (src.includes("?") ? "&" : "?") + "autoplay=1";
-      }
-
-      // Portrait ratio for Instagram reels, landscape for YouTube
-      const isInstagram = thumb.classList.contains("insta-thumb");
-      lightboxContent.style.aspectRatio = isInstagram ? "9/16" : "16/9";
-      lightboxContent.style.maxHeight = isInstagram ? "85vh" : "";
-      lightboxContent.style.width = isInstagram ? "auto" : "";
-
-      lightboxIframe.src = src;
-      lightbox.classList.add("active");
-      document.body.style.overflow = "hidden";
-    });
-  });
-
-  function closeLightbox() {
-    lightbox.classList.remove("active");
-    lightboxIframe.src = "";
-    document.body.style.overflow = "";
-    lightboxContent.style.aspectRatio = "";
-    lightboxContent.style.maxHeight = "";
-    lightboxContent.style.width = "";
+  function closeVideoModal() {
+    if (!videoModal) return;
+    videoModal.classList.remove("active");
+    if(videoModalVideo) videoModalVideo.pause();
+    setTimeout(() => {
+      if(videoModalVideo) videoModalVideo.src = "";
+    }, 400);
+    lenis.start();
+    document.body.style.overflow = '';
   }
 
-  lightboxClose.addEventListener("click", closeLightbox);
-  lightboxOverlay.addEventListener("click", closeLightbox);
-  document.addEventListener("keydown", e => { if (e.key === "Escape") closeLightbox(); });
+  if(videoModalClose) videoModalClose.addEventListener("click", closeVideoModal);
+  if(videoModalOverlay) videoModalOverlay.addEventListener("click", closeVideoModal);
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && videoModal && videoModal.classList.contains("active")) closeVideoModal();
+  });
 
-  /* =====================
+  /* ==========================================================
      DYNAMIC TESTIMONIALS
-     FROM GOOGLE SHEETS
-  ===================== */
+  ========================================================== */
   const SHEET_ID = "15MbBznAgI-2xlY7xWE6VFMIt8bHaDgMha-Mji2hjGtI";
   const SHEET_URL = `https://opensheet.elk.sh/${SHEET_ID}/Form%20responses%201`;
 
-  function getInitials(name) {
-    if (!name || name.trim() === "") return "??";
-    return name.trim().split(/\s+/).map(w => w[0]).join("").toUpperCase().slice(0, 2);
-  }
-
-  const gradients = [
-    "linear-gradient(135deg,#a855f7,#ec4899)",
-    "linear-gradient(135deg,#f59e0b,#ef4444)",
-    "linear-gradient(135deg,#06b6d4,#3b82f6)",
-    "linear-gradient(135deg,#10b981,#3b82f6)",
-    "linear-gradient(135deg,#f97316,#ec4899)",
-  ];
-
   fetch(SHEET_URL)
-    .then(res => {
-      if (!res.ok) throw new Error("Sheet fetch failed: " + res.status);
-      return res.json();
-    })
+    .then(res => res.json())
     .then(data => {
-      console.log("Sheet data received:", data.length, "rows");
-      console.log("First row keys:", data[0] ? Object.keys(data[0]) : "empty");
-
-      const container = document.getElementById("dynamic-testimonials");
-      const validEntries = data.filter(entry => {
-        // Try all possible key variations
-        const name = entry["Your Good Name?"] || entry["Full Name"] || entry["Name"] || "";
-        const feedback = entry["Please Give your feedback ."] || entry["Give your feedback"] || entry["Feedback"] || "";
-        return name.trim() !== "" && feedback.trim() !== "";
-      });
-
-      console.log("Valid entries:", validEntries.length);
+      const container = document.getElementById("testimonials-grid");
+      if(!container) return;
+      const validEntries = data.filter(e => (e["Your Good Name?"] || e["Full Name"] || e["Name"] || "").trim() !== "" && (e["Please Give your feedback ."] || e["Give your feedback"] || e["Feedback"] || "").trim() !== "");
 
       validEntries.forEach((entry, i) => {
-        // Handle all possible column name variations
         const name = entry["Your Good Name?"] || entry["Full Name"] || entry["Name"] || "Anonymous";
         const feedback = entry["Please Give your feedback ."] || entry["Give your feedback"] || entry["Feedback"] || "";
         const role = entry["What do you do? (Eg. Content creator, Business owner, Musician)"] || entry["What do you do?"] || "";
-        const ratingRaw = entry["Rate Me also"] || entry["Ratings"] || entry["Rating"] || "5";
-        const rating = Math.min(5, Math.max(1, parseInt(ratingRaw) || 5));
-        const stars = "★".repeat(rating) + "☆".repeat(5 - rating);
-        const initials = getInitials(name);
-        const gradient = gradients[i % gradients.length];
+        const rating = Math.min(5, Math.max(1, parseInt(entry["Rate Me also"] || entry["Ratings"] || entry["Rating"] || "5")));
+        const stars = "&#9733;".repeat(rating) + "&#9734;".repeat(5 - rating);
 
         const card = document.createElement("div");
         card.className = "t-card fade-up-trigger";
+        card.style.animationDelay = `${i * 0.15}s`;
         card.innerHTML = `
           <div class="t-stars">${stars}</div>
           <p class="t-text">"${feedback}"</p>
           <div class="t-profile">
-            <div class="t-avatar" style="background:${gradient}">${initials}</div>
+            <div class="t-avatar">${name.charAt(0).toUpperCase()}</div>
             <div>
               <h4>${name}</h4>
               <p>${role}</p>
             </div>
           </div>
         `;
-        container.appendChild(card);
-        observer.observe(card);
+        // Insert right before the dynamic-testimonials anchor if it exists, otherwise append
+        const anchor = document.getElementById("dynamic-testimonials");
+        if(anchor) {
+          container.insertBefore(card, anchor);
+        } else {
+          container.appendChild(card);
+        }
       });
-    })
-    .catch(err => {
-      console.error("Testimonials fetch error:", err);
-    });
-
-  /* =====================
-     INSTAGRAM THUMBNAILS
-     via Microlink API
-  ===================== */
-  const instaThumbs = document.querySelectorAll(".insta-thumb");
-
-  instaThumbs.forEach((thumb, index) => {
-    // Stagger requests so we don't hammer the API
-    setTimeout(() => {
-      const reelUrl = thumb.dataset.src
-        ? thumb.dataset.src.replace("/embed", "")
-        : null;
-
-      if (!reelUrl) return;
-
-      const apiUrl = `https://api.microlink.io/?url=${encodeURIComponent(reelUrl)}&screenshot=true&meta=false&embed=screenshot.url`;
-
-      fetch(apiUrl)
-        .then(res => res.json())
-        .then(data => {
-          if (data.status === "success" && data.data && data.data.screenshot && data.data.screenshot.url) {
-            const imgUrl = data.data.screenshot.url;
-
-            // Create img element and inject into the preview
-            const preview = thumb.querySelector(".insta-preview");
-            if (!preview) return;
-
-            // Build a real thumbnail overlay
-            const img = document.createElement("img");
-            img.src = imgUrl;
-            img.alt = "Reel thumbnail";
-            img.style.cssText = `
-              position: absolute;
-              inset: 0;
-              width: 100%;
-              height: 100%;
-              object-fit: cover;
-              border-radius: 0;
-              z-index: 0;
-              opacity: 0;
-              transition: opacity 0.5s ease;
-            `;
-
-            img.onload = () => {
-              img.style.opacity = "1";
-              // Dim the play icon slightly so it's visible over the image
-              const playBig = preview.querySelector(".insta-play-big");
-              if (playBig) {
-                playBig.style.textShadow = "0 2px 16px rgba(0,0,0,0.9)";
-                playBig.style.zIndex = "2";
-              }
-              const label = preview.querySelector(".insta-label");
-              if (label) label.style.zIndex = "2";
-              const watermark = preview.querySelector(".insta-watermark");
-              if (watermark) watermark.style.zIndex = "2";
-            };
-
-            img.onerror = () => {
-              // Silently fail — keep the dark gradient fallback
-            };
-
-            preview.style.position = "relative";
-            preview.insertBefore(img, preview.firstChild);
-          }
-        })
-        .catch(() => {
-          // Microlink failed — dark gradient fallback stays, no error shown
-        });
-    }, index * 300); // 300ms stagger between each request
-  });
+    }).catch(err => console.error("Error fetching testimonials:", err));
 
 });
+
+  /* ==========================================================
+     SKILL RING ANIMATION
+  ========================================================== */
+  const ringObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const ring = entry.target.querySelector('.ring-fill');
+        if (ring) {
+          const pct = parseFloat(ring.dataset.pct);
+          const circumference = 314.159;
+          const offset = circumference - (pct / 100) * circumference;
+          ring.style.strokeDashoffset = offset;
+        }
+        ringObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  document.querySelectorAll('.skill-card').forEach(card => {
+    ringObserver.observe(card);
+  });

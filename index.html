@@ -27,7 +27,8 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -94,17 +95,17 @@
   <section id="about">
     <div class="stats-bar">
       <div class="stat-item fade-up-trigger">
-        <span class="stat-num" data-count="80">0</span><span class="stat-suffix">+</span>
+        <span class="stat-num" data-count="100">0</span><span class="stat-suffix">+</span>
         <p>Projects Done</p>
       </div>
       <div class="stat-divider"></div>
       <div class="stat-item fade-up-trigger">
-        <span class="stat-num" data-count="3">0</span><span class="stat-suffix">+</span>
+        <span class="stat-num" data-count="4">0</span><span class="stat-suffix">+</span>
         <p>Years Experience</p>
       </div>
       <div class="stat-divider"></div>
       <div class="stat-item fade-up-trigger">
-        <span class="stat-num" data-count="20">0</span><span class="stat-suffix">+</span>
+        <span class="stat-num" data-count="30">0</span><span class="stat-suffix">+</span>
         <p>Happy Clients</p>
       </div>
       <div class="stat-divider"></div>
@@ -179,159 +180,412 @@
       </div>
       <div class="filter-bar fade-up-trigger">
         <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="instagram">Instagram</button>
-        <button class="filter-btn" data-filter="youtube">YouTube</button>
+        <button class="filter-btn" data-filter="motiongraphics">Motion Graphics</button>
+        <button class="filter-btn" data-filter="person-head">Person-head video</button>
       </div>
-      <div class="video-grid" id="video-grid">
-
-        <div class="video-card fade-up-trigger" data-type="instagram">
-          <div class="video-thumb insta-thumb" data-src="https://www.instagram.com/reel/DTc5yGskpOJ/embed">
-            <div class="insta-preview" data-color="#9b5de5"><div class="card-num">01</div><div class="card-center"><div class="card-play-ring"><div class="play-triangle"></div></div><p class="card-title">Motivational Edit</p></div><div class="card-bottom"><span class="card-cat" style="color:#9b5de5">Energy</span><span class="card-ig"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="white" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="white" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.5" fill="white"/></svg></span></div></div>
-            <span class="platform-badge ig">Instagram</span>
+      <div class="works-carousel-wrap">
+        <div class="works-carousel swiper">
+          <div class="swiper-wrapper">
+          <div class="swiper-slide" data-type="motiongraphics" data-src="./assets/videos/DWJ0UI8kkHK.mp4">
+            <div class="slide-card">
+              <div class="slide-bg"></div>
+              <div class="slide-embed-wrap">
+                 <video src="./assets/videos/DWJ0UI8kkHK.mp4" muted loop playsinline disablepictureinpicture tabindex="-1" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;"></video>
+              </div>
+              <div class="slide-overlay">
+                <span class="slide-badge ig">IG</span>
+                <div class="slide-center">
+                  <div class="slide-play-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+                  </div>
+                </div>
+                <div class="slide-bottom">
+                  <h4 class="slide-title">Instagram Reel</h4>
+                  <span class="slide-cat">Motion Graphics</span>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-
-        <div class="video-card fade-up-trigger" data-type="instagram">
-          <div class="video-thumb insta-thumb" data-src="https://www.instagram.com/reel/DWJ0UI8kkHK/embed">
-            <div class="insta-preview" data-color="#e8c97e"><div class="card-num">02</div><div class="card-center"><div class="card-play-ring"><div class="play-triangle"></div></div><p class="card-title">Brand Film</p></div><div class="card-bottom"><span class="card-cat" style="color:#e8c97e">Commercial</span><span class="card-ig"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="white" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="white" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.5" fill="white"/></svg></span></div></div>
-            <span class="platform-badge ig">Instagram</span>
+          <div class="swiper-slide" data-type="person-head" data-src="./assets/videos/DMAhq32y-D5.mp4">
+            <div class="slide-card">
+              <div class="slide-bg"></div>
+              <div class="slide-embed-wrap">
+                 <video src="./assets/videos/DMAhq32y-D5.mp4" muted loop playsinline disablepictureinpicture tabindex="-1" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;"></video>
+              </div>
+              <div class="slide-overlay">
+                <span class="slide-badge ig">IG</span>
+                <div class="slide-center">
+                  <div class="slide-play-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+                  </div>
+                </div>
+                <div class="slide-bottom">
+                  <h4 class="slide-title">Instagram Reel</h4>
+                  <span class="slide-cat">Person-Head Video</span>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-
-        <div class="video-card fade-up-trigger" data-type="instagram">
-          <div class="video-thumb insta-thumb" data-src="https://www.instagram.com/reel/DVyYgqME2_a/embed">
-            <div class="insta-preview" data-color="#06d6a0"><div class="card-num">03</div><div class="card-center"><div class="card-play-ring"><div class="play-triangle"></div></div><p class="card-title">Travel Vlog</p></div><div class="card-bottom"><span class="card-cat" style="color:#06d6a0">Travel</span><span class="card-ig"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="white" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="white" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.5" fill="white"/></svg></span></div></div>
-            <span class="platform-badge ig">Instagram</span>
+          <div class="swiper-slide" data-type="person-head" data-src="./assets/videos/DOI-coLknTx.mp4">
+            <div class="slide-card">
+              <div class="slide-bg"></div>
+              <div class="slide-embed-wrap">
+                 <video src="./assets/videos/DOI-coLknTx.mp4" muted loop playsinline disablepictureinpicture tabindex="-1" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;"></video>
+              </div>
+              <div class="slide-overlay">
+                <span class="slide-badge ig">IG</span>
+                <div class="slide-center">
+                  <div class="slide-play-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+                  </div>
+                </div>
+                <div class="slide-bottom">
+                  <h4 class="slide-title">Instagram Reel</h4>
+                  <span class="slide-cat">Person-Head Video</span>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-
-        <div class="video-card fade-up-trigger" data-type="instagram">
-          <div class="video-thumb insta-thumb" data-src="https://www.instagram.com/reel/DVn0PG-k5UT/embed">
-            <div class="insta-preview" data-color="#f72585"><div class="card-num">04</div><div class="card-center"><div class="card-play-ring"><div class="play-triangle"></div></div><p class="card-title">Personal Story</p></div><div class="card-bottom"><span class="card-cat" style="color:#f72585">Lifestyle</span><span class="card-ig"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="white" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="white" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.5" fill="white"/></svg></span></div></div>
-            <span class="platform-badge ig">Instagram</span>
+          <div class="swiper-slide" data-type="motiongraphics" data-src="./assets/videos/DViikr0ESE_.mp4">
+            <div class="slide-card">
+              <div class="slide-bg"></div>
+              <div class="slide-embed-wrap">
+                 <video src="./assets/videos/DViikr0ESE_.mp4" muted loop playsinline disablepictureinpicture tabindex="-1" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;"></video>
+              </div>
+              <div class="slide-overlay">
+                <span class="slide-badge ig">IG</span>
+                <div class="slide-center">
+                  <div class="slide-play-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+                  </div>
+                </div>
+                <div class="slide-bottom">
+                  <h4 class="slide-title">Instagram Reel</h4>
+                  <span class="slide-cat">Motion Graphics</span>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-
-        <div class="video-card fade-up-trigger" data-type="instagram">
-          <div class="video-thumb insta-thumb" data-src="https://www.instagram.com/reel/DViikr0ESE_/embed">
-            <div class="insta-preview" data-color="#3a86ff"><div class="card-num">05</div><div class="card-center"><div class="card-play-ring"><div class="play-triangle"></div></div><p class="card-title">Business Reel</p></div><div class="card-bottom"><span class="card-cat" style="color:#3a86ff">Business</span><span class="card-ig"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="white" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="white" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.5" fill="white"/></svg></span></div></div>
-            <span class="platform-badge ig">Instagram</span>
+          <div class="swiper-slide" data-type="person-head" data-src="./assets/videos/DTc5yGskpOJ.mp4">
+            <div class="slide-card">
+              <div class="slide-bg"></div>
+              <div class="slide-embed-wrap">
+                 <video src="./assets/videos/DTc5yGskpOJ.mp4" muted loop playsinline disablepictureinpicture tabindex="-1" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;"></video>
+              </div>
+              <div class="slide-overlay">
+                <span class="slide-badge ig">IG</span>
+                <div class="slide-center">
+                  <div class="slide-play-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+                  </div>
+                </div>
+                <div class="slide-bottom">
+                  <h4 class="slide-title">Instagram Reel</h4>
+                  <span class="slide-cat">Person-Head Video</span>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-
-        <div class="video-card fade-up-trigger" data-type="instagram">
-          <div class="video-thumb insta-thumb" data-src="https://www.instagram.com/reel/DUe25vaEttQ/embed">
-            <div class="insta-preview" data-color="#e8c97e"><div class="card-num">06</div><div class="card-center"><div class="card-play-ring"><div class="play-triangle"></div></div><p class="card-title">Interview Cut</p></div><div class="card-bottom"><span class="card-cat" style="color:#e8c97e">Interview</span><span class="card-ig"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="white" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="white" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.5" fill="white"/></svg></span></div></div>
-            <span class="platform-badge ig">Instagram</span>
+          <div class="swiper-slide" data-type="motiongraphics" data-src="./assets/videos/DUe25vaEttQ.mp4">
+            <div class="slide-card">
+              <div class="slide-bg"></div>
+              <div class="slide-embed-wrap">
+                 <video src="./assets/videos/DUe25vaEttQ.mp4" muted loop playsinline disablepictureinpicture tabindex="-1" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;"></video>
+              </div>
+              <div class="slide-overlay">
+                <span class="slide-badge ig">IG</span>
+                <div class="slide-center">
+                  <div class="slide-play-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+                  </div>
+                </div>
+                <div class="slide-bottom">
+                  <h4 class="slide-title">Instagram Reel</h4>
+                  <span class="slide-cat">Motion Graphics</span>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-
-        <div class="video-card fade-up-trigger" data-type="instagram">
-          <div class="video-thumb insta-thumb" data-src="https://www.instagram.com/reel/DQZJzPTjcsh/embed">
-            <div class="insta-preview" data-color="#9b5de5"><div class="card-num">07</div><div class="card-center"><div class="card-play-ring"><div class="play-triangle"></div></div><p class="card-title">Cinematic Edit</p></div><div class="card-bottom"><span class="card-cat" style="color:#9b5de5">Cinematic</span><span class="card-ig"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="white" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="white" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.5" fill="white"/></svg></span></div></div>
-            <span class="platform-badge ig">Instagram</span>
+          <div class="swiper-slide" data-type="person-head" data-src="./assets/videos/DHYp3eyzR1S.mp4">
+            <div class="slide-card">
+              <div class="slide-bg"></div>
+              <div class="slide-embed-wrap">
+                 <video src="./assets/videos/DHYp3eyzR1S.mp4" muted loop playsinline disablepictureinpicture tabindex="-1" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;"></video>
+              </div>
+              <div class="slide-overlay">
+                <span class="slide-badge ig">IG</span>
+                <div class="slide-center">
+                  <div class="slide-play-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+                  </div>
+                </div>
+                <div class="slide-bottom">
+                  <h4 class="slide-title">Instagram Reel</h4>
+                  <span class="slide-cat">Person-Head Video</span>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-
-        <div class="video-card fade-up-trigger" data-type="instagram">
-          <div class="video-thumb insta-thumb" data-src="https://www.instagram.com/reel/DPtZen_krsF/embed">
-            <div class="insta-preview" data-color="#06d6a0"><div class="card-num">08</div><div class="card-center"><div class="card-play-ring"><div class="play-triangle"></div></div><p class="card-title">Color Grade</p></div><div class="card-bottom"><span class="card-cat" style="color:#06d6a0">Color</span><span class="card-ig"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="white" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="white" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.5" fill="white"/></svg></span></div></div>
-            <span class="platform-badge ig">Instagram</span>
+          <div class="swiper-slide" data-type="person-head" data-src="./assets/videos/DYbfr9rTHUK.mp4">
+            <div class="slide-card">
+              <div class="slide-bg"></div>
+              <div class="slide-embed-wrap">
+                 <video src="./assets/videos/DYbfr9rTHUK.mp4" muted loop playsinline disablepictureinpicture tabindex="-1" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;"></video>
+              </div>
+              <div class="slide-overlay">
+                <span class="slide-badge ig">IG</span>
+                <div class="slide-center">
+                  <div class="slide-play-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+                  </div>
+                </div>
+                <div class="slide-bottom">
+                  <h4 class="slide-title">Instagram Reel</h4>
+                  <span class="slide-cat">Person-Head Video</span>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-
-        <div class="video-card fade-up-trigger" data-type="instagram">
-          <div class="video-thumb insta-thumb" data-src="https://www.instagram.com/reel/DPIXJKgCPec/embed">
-            <div class="insta-preview" data-color="#f72585"><div class="card-num">09</div><div class="card-center"><div class="card-play-ring"><div class="play-triangle"></div></div><p class="card-title">Motion Design</p></div><div class="card-bottom"><span class="card-cat" style="color:#f72585">Motion</span><span class="card-ig"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="white" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="white" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.5" fill="white"/></svg></span></div></div>
-            <span class="platform-badge ig">Instagram</span>
+          <div class="swiper-slide" data-type="person-head" data-src="./assets/videos/DOivrp5kqJF.mp4">
+            <div class="slide-card">
+              <div class="slide-bg"></div>
+              <div class="slide-embed-wrap">
+                 <video src="./assets/videos/DOivrp5kqJF.mp4" muted loop playsinline disablepictureinpicture tabindex="-1" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;"></video>
+              </div>
+              <div class="slide-overlay">
+                <span class="slide-badge ig">IG</span>
+                <div class="slide-center">
+                  <div class="slide-play-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+                  </div>
+                </div>
+                <div class="slide-bottom">
+                  <h4 class="slide-title">Instagram Reel</h4>
+                  <span class="slide-cat">Person-Head Video</span>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-
-        <div class="video-card fade-up-trigger" data-type="instagram">
-          <div class="video-thumb insta-thumb" data-src="https://www.instagram.com/reel/DOivrp5kqJF/embed">
-            <div class="insta-preview" data-color="#3a86ff"><div class="card-num">10</div><div class="card-center"><div class="card-play-ring"><div class="play-triangle"></div></div><p class="card-title">Music Reel</p></div><div class="card-bottom"><span class="card-cat" style="color:#3a86ff">Music</span><span class="card-ig"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="white" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="white" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.5" fill="white"/></svg></span></div></div>
-            <span class="platform-badge ig">Instagram</span>
+          <div class="swiper-slide" data-type="motiongraphics" data-src="./assets/videos/DWsoWolDKyS.mp4">
+            <div class="slide-card">
+              <div class="slide-bg"></div>
+              <div class="slide-embed-wrap">
+                 <video src="./assets/videos/DWsoWolDKyS.mp4" muted loop playsinline disablepictureinpicture tabindex="-1" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;"></video>
+              </div>
+              <div class="slide-overlay">
+                <span class="slide-badge ig">IG</span>
+                <div class="slide-center">
+                  <div class="slide-play-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+                  </div>
+                </div>
+                <div class="slide-bottom">
+                  <h4 class="slide-title">Instagram Reel</h4>
+                  <span class="slide-cat">Motion Graphics</span>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-
-        <div class="video-card fade-up-trigger" data-type="instagram">
-          <div class="video-thumb insta-thumb" data-src="https://www.instagram.com/reel/DOI-coLknTx/embed">
-            <div class="insta-preview" data-color="#e8c97e"><div class="card-num">11</div><div class="card-center"><div class="card-play-ring"><div class="play-triangle"></div></div><p class="card-title">Education</p></div><div class="card-bottom"><span class="card-cat" style="color:#e8c97e">Education</span><span class="card-ig"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="white" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="white" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.5" fill="white"/></svg></span></div></div>
-            <span class="platform-badge ig">Instagram</span>
+          <div class="swiper-slide" data-type="person-head" data-src="./assets/videos/DPIXJKgCPec.mp4">
+            <div class="slide-card">
+              <div class="slide-bg"></div>
+              <div class="slide-embed-wrap">
+                 <video src="./assets/videos/DPIXJKgCPec.mp4" muted loop playsinline disablepictureinpicture tabindex="-1" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;"></video>
+              </div>
+              <div class="slide-overlay">
+                <span class="slide-badge ig">IG</span>
+                <div class="slide-center">
+                  <div class="slide-play-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+                  </div>
+                </div>
+                <div class="slide-bottom">
+                  <h4 class="slide-title">Instagram Reel</h4>
+                  <span class="slide-cat">Person-Head Video</span>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-
-        <div class="video-card fade-up-trigger" data-type="instagram">
-          <div class="video-thumb insta-thumb" data-src="https://www.instagram.com/reel/DMAhq32y-D5/embed">
-            <div class="insta-preview" data-color="#9b5de5"><div class="card-num">12</div><div class="card-center"><div class="card-play-ring"><div class="play-triangle"></div></div><p class="card-title">Entertainment</p></div><div class="card-bottom"><span class="card-cat" style="color:#9b5de5">Entertainment</span><span class="card-ig"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="white" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="white" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.5" fill="white"/></svg></span></div></div>
-            <span class="platform-badge ig">Instagram</span>
+          <div class="swiper-slide" data-type="person-head" data-src="./assets/videos/DXQ-NTWiA1L.mp4">
+            <div class="slide-card">
+              <div class="slide-bg"></div>
+              <div class="slide-embed-wrap">
+                 <video src="./assets/videos/DXQ-NTWiA1L.mp4" muted loop playsinline disablepictureinpicture tabindex="-1" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;"></video>
+              </div>
+              <div class="slide-overlay">
+                <span class="slide-badge ig">IG</span>
+                <div class="slide-center">
+                  <div class="slide-play-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+                  </div>
+                </div>
+                <div class="slide-bottom">
+                  <h4 class="slide-title">Instagram Reel</h4>
+                  <span class="slide-cat">Person-Head Video</span>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-
-        <div class="video-card fade-up-trigger" data-type="instagram">
-          <div class="video-thumb insta-thumb" data-src="https://www.instagram.com/reel/DHYp3eyzR1S/embed">
-            <div class="insta-preview" data-color="#06d6a0"><div class="card-num">13</div><div class="card-center"><div class="card-play-ring"><div class="play-triangle"></div></div><p class="card-title">Lifestyle Edit</p></div><div class="card-bottom"><span class="card-cat" style="color:#06d6a0">Lifestyle</span><span class="card-ig"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="white" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="white" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.5" fill="white"/></svg></span></div></div>
-            <span class="platform-badge ig">Instagram</span>
+          <div class="swiper-slide" data-type="motiongraphics" data-src="./assets/videos/DWDWqr3gLl_.mp4">
+            <div class="slide-card">
+              <div class="slide-bg"></div>
+              <div class="slide-embed-wrap">
+                 <video src="./assets/videos/DWDWqr3gLl_.mp4" muted loop playsinline disablepictureinpicture tabindex="-1" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;"></video>
+              </div>
+              <div class="slide-overlay">
+                <span class="slide-badge ig">IG</span>
+                <div class="slide-center">
+                  <div class="slide-play-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+                  </div>
+                </div>
+                <div class="slide-bottom">
+                  <h4 class="slide-title">Instagram Reel</h4>
+                  <span class="slide-cat">Motion Graphics</span>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-
-        <div class="video-card fade-up-trigger" data-type="youtube">
-          <div class="video-thumb" data-src="https://www.youtube.com/embed/nNPs1i6B9hc?autoplay=1">
-            <img src="https://img.youtube.com/vi/nNPs1i6B9hc/hqdefault.jpg" alt="YouTube Video" loading="lazy">
-            <div class="play-overlay"><div class="play-btn"><div class="play-triangle"></div></div></div>
-            <span class="platform-badge yt">YouTube</span>
+          <div class="swiper-slide" data-type="person-head" data-src="./assets/videos/DXKNjJRk5ZY.mp4">
+            <div class="slide-card">
+              <div class="slide-bg"></div>
+              <div class="slide-embed-wrap">
+                 <video src="./assets/videos/DXKNjJRk5ZY.mp4" muted loop playsinline disablepictureinpicture tabindex="-1" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;"></video>
+              </div>
+              <div class="slide-overlay">
+                <span class="slide-badge ig">IG</span>
+                <div class="slide-center">
+                  <div class="slide-play-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+                  </div>
+                </div>
+                <div class="slide-bottom">
+                  <h4 class="slide-title">Instagram Reel</h4>
+                  <span class="slide-cat">Person-Head Video</span>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-
-        <div class="video-card fade-up-trigger" data-type="youtube">
-          <div class="video-thumb" data-src="https://www.youtube.com/embed/E2MTD3xdWFY?autoplay=1">
-            <img src="https://img.youtube.com/vi/E2MTD3xdWFY/hqdefault.jpg" alt="YouTube Video" loading="lazy">
-            <div class="play-overlay"><div class="play-btn"><div class="play-triangle"></div></div></div>
-            <span class="platform-badge yt">YouTube</span>
+          <div class="swiper-slide" data-type="person-head" data-src="./assets/videos/DQZJzPTjcsh.mp4">
+            <div class="slide-card">
+              <div class="slide-bg"></div>
+              <div class="slide-embed-wrap">
+                 <video src="./assets/videos/DQZJzPTjcsh.mp4" muted loop playsinline disablepictureinpicture tabindex="-1" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;"></video>
+              </div>
+              <div class="slide-overlay">
+                <span class="slide-badge ig">IG</span>
+                <div class="slide-center">
+                  <div class="slide-play-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+                  </div>
+                </div>
+                <div class="slide-bottom">
+                  <h4 class="slide-title">Instagram Reel</h4>
+                  <span class="slide-cat">Person-Head Video</span>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-
-        <div class="video-card fade-up-trigger" data-type="youtube">
-          <div class="video-thumb" data-src="https://www.youtube.com/embed/IA0pQJIfJok?autoplay=1">
-            <img src="https://img.youtube.com/vi/IA0pQJIfJok/hqdefault.jpg" alt="YouTube Video" loading="lazy">
-            <div class="play-overlay"><div class="play-btn"><div class="play-triangle"></div></div></div>
-            <span class="platform-badge yt">YouTube</span>
+          <div class="swiper-slide" data-type="motiongraphics" data-src="./assets/videos/DVn0PG-k5UT.mp4">
+            <div class="slide-card">
+              <div class="slide-bg"></div>
+              <div class="slide-embed-wrap">
+                 <video src="./assets/videos/DVn0PG-k5UT.mp4" muted loop playsinline disablepictureinpicture tabindex="-1" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;"></video>
+              </div>
+              <div class="slide-overlay">
+                <span class="slide-badge ig">IG</span>
+                <div class="slide-center">
+                  <div class="slide-play-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+                  </div>
+                </div>
+                <div class="slide-bottom">
+                  <h4 class="slide-title">Instagram Reel</h4>
+                  <span class="slide-cat">Motion Graphics</span>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-
-        <div class="video-card fade-up-trigger" data-type="youtube">
-          <div class="video-thumb" data-src="https://www.youtube.com/embed/mVXOUVoncZ0?autoplay=1">
-            <img src="https://img.youtube.com/vi/mVXOUVoncZ0/hqdefault.jpg" alt="YouTube Video" loading="lazy">
-            <div class="play-overlay"><div class="play-btn"><div class="play-triangle"></div></div></div>
-            <span class="platform-badge yt">YouTube</span>
+          <div class="swiper-slide" data-type="person-head" data-src="./assets/videos/DPtZen_krsF.mp4">
+            <div class="slide-card">
+              <div class="slide-bg"></div>
+              <div class="slide-embed-wrap">
+                 <video src="./assets/videos/DPtZen_krsF.mp4" muted loop playsinline disablepictureinpicture tabindex="-1" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;"></video>
+              </div>
+              <div class="slide-overlay">
+                <span class="slide-badge ig">IG</span>
+                <div class="slide-center">
+                  <div class="slide-play-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+                  </div>
+                </div>
+                <div class="slide-bottom">
+                  <h4 class="slide-title">Instagram Reel</h4>
+                  <span class="slide-cat">Person-Head Video</span>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-
-        <div class="video-card fade-up-trigger" data-type="youtube">
-          <div class="video-thumb" data-src="https://www.youtube.com/embed/ddXlxHlTSnk?autoplay=1">
-            <img src="https://img.youtube.com/vi/ddXlxHlTSnk/hqdefault.jpg" alt="YouTube Video" loading="lazy">
-            <div class="play-overlay"><div class="play-btn"><div class="play-triangle"></div></div></div>
-            <span class="platform-badge yt">YouTube</span>
+          <div class="swiper-slide" data-type="motiongraphics" data-src="./assets/videos/DVyYgqME2_a.mp4">
+            <div class="slide-card">
+              <div class="slide-bg"></div>
+              <div class="slide-embed-wrap">
+                 <video src="./assets/videos/DVyYgqME2_a.mp4" muted loop playsinline disablepictureinpicture tabindex="-1" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;"></video>
+              </div>
+              <div class="slide-overlay">
+                <span class="slide-badge ig">IG</span>
+                <div class="slide-center">
+                  <div class="slide-play-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+                  </div>
+                </div>
+                <div class="slide-bottom">
+                  <h4 class="slide-title">Instagram Reel</h4>
+                  <span class="slide-cat">Motion Graphics</span>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-
-        <div class="video-card fade-up-trigger" data-type="youtube">
-          <div class="video-thumb" data-src="https://www.youtube.com/embed/rVbjBIXGP-A?autoplay=1">
-            <img src="https://img.youtube.com/vi/rVbjBIXGP-A/hqdefault.jpg" alt="YouTube Video" loading="lazy">
-            <div class="play-overlay"><div class="play-btn"><div class="play-triangle"></div></div></div>
-            <span class="platform-badge yt">YouTube</span>
+          <div class="swiper-slide" data-type="person-head" data-src="./assets/videos/DXmxsq9Dg62.mp4">
+            <div class="slide-card">
+              <div class="slide-bg"></div>
+              <div class="slide-embed-wrap">
+                 <video src="./assets/videos/DXmxsq9Dg62.mp4" muted loop playsinline disablepictureinpicture tabindex="-1" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;"></video>
+              </div>
+              <div class="slide-overlay">
+                <span class="slide-badge ig">IG</span>
+                <div class="slide-center">
+                  <div class="slide-play-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+                  </div>
+                </div>
+                <div class="slide-bottom">
+                  <h4 class="slide-title">Instagram Reel</h4>
+                  <span class="slide-cat">Person-Head Video</span>
+                </div>
+              </div>
+            </div>
           </div>
+          </div>
+          <!-- Pagination -->
+          <div class="swiper-pagination"></div>
         </div>
-
+        <!-- Navigation Buttons -->
+        <button class="carousel-nav-btn carousel-nav-prev" id="carousel-nav-prev" aria-label="Previous">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <button class="carousel-nav-btn carousel-nav-next" id="carousel-nav-next" aria-label="Next">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
       </div>
     </div>
   </section>
 
-  <div id="lightbox" class="lightbox">
-    <div class="lightbox-overlay" id="lightbox-overlay"></div>
-    <div class="lightbox-content">
-      <button class="lightbox-close" id="lightbox-close">&#10005;</button>
-      <iframe id="lightbox-iframe" src="" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+  <div id="video-modal" class="video-modal">
+    <div class="video-modal-overlay" id="video-modal-overlay"></div>
+    <div class="video-modal-content" id="video-modal-content">
+      <button class="video-modal-close" id="video-modal-close">&#10005;</button>
+      <video id="video-modal-video" src="" controls autoplay></video>
     </div>
   </div>
 
@@ -472,6 +726,10 @@
     </div>
   </footer>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
