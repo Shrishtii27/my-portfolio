@@ -1637,6 +1637,7 @@ ul { list-style: none; }
   z-index: 2;
   width: 90%;
   max-width: 450px; /* Default for portrait */
+  max-height: 90vh; /* Prevents vertical overflow on small screens */
   aspect-ratio: 9/16;
   background: #000;
   border-radius: 20px;
