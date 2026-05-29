@@ -259,6 +259,10 @@ document.addEventListener("DOMContentLoaded", () => {
           videoModal.classList.add("active");
           lenis.stop();
           document.body.style.overflow = 'hidden';
+          
+          // Pause all background carousel videos to prevent mobile lag
+          document.querySelectorAll('.swiper-slide video').forEach(v => v.pause());
+
           videoModalVideo.play().catch(e => console.error("Autoplay failed:", e));
         } else {
           s.slideTo(s.clickedIndex);
@@ -324,6 +328,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if(videoModalVideo) videoModalVideo.pause();
     setTimeout(() => {
       if(videoModalVideo) videoModalVideo.src = "";
+      // Resume background video
+      loadActiveSlideIframe();
     }, 400);
     lenis.start();
     document.body.style.overflow = '';
