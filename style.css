@@ -882,6 +882,10 @@ ul { list-style: none; }
   margin-bottom: 3rem;
 }
 
+#dynamic-testimonials {
+  display: contents;
+}
+
 .t-card {
   background: var(--bg3);
   border: 1px solid var(--border);
@@ -1108,6 +1112,8 @@ ul { list-style: none; }
 
 /* ===== FADE-UP GENERAL ===== */
 .fade-up-trigger {
+  opacity: 0;
+  transform: translateY(30px);
   transition: opacity 0.7s ease, transform 0.7s ease;
   animation: showFallback 0s 2s forwards;
 }
